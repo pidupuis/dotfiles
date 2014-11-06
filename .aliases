@@ -139,3 +139,23 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+## GIT ALIASES
+alias grhard='git reset --hard HEAD'
+alias grh='git reset HEAD'
+alias ga='git add'
+alias gaa='ga -A'
+alias gps='git push'
+alias gl='git log'
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gs='git status'
+alias gd='git diff'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gb='git branch'
+alias gc='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpl='git pull'
+alias gcl='git clone'
+alias gf='git fetch'
