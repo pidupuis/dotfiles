@@ -1,0 +1,10 @@
+'global':
+  'core':
+    'themes': [
+      'solarized-dark-ui'
+      'solarized-dark-syntax'
+    ]
+  'welcome':
+    'showOnStartup': false
+  'editor':
+    'invisibles': {}
