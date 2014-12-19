@@ -87,6 +87,9 @@ alias grr='git remote rm'
 alias gpl='git pull'
 alias gcl='git clone'
 alias gf='git fetch'
+alias gg='git grep'
+alias gre='git rebase'
+alias gme='git merge'
 
 # ------------------------------------------------------------------------------
 # | Grunt |
