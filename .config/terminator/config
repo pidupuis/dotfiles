@@ -1,8 +1,11 @@
 [global_config]
+  suppress_multiple_term_dialog = True
 [keybindings]
 [profiles]
   [[default]]
+    background_image = None
     background_color = "#002b36"
+    show_titlebar = False
     foreground_color = "#839496"
 [layouts]
   [[default]]
