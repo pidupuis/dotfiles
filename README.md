@@ -2,25 +2,23 @@
 
 ## Installation
 
-### Using Git and the bootstrap script
-
 ```bash
-cd ~/ && git clone https://github.com/pidupuis/dotfiles.git && cd dotfiles && source bootstrap.sh
+cd ~/ && git clone https://github.com/pidupuis/dotfiles.git && bash install.sh
 ```
+This will install preferred softwares and then apply the dotfiles script to configure system and softwares.
 
-To update, `cd` into your local `dotfiles` repository and then:
+To update config, `cd` into your local `dotfiles` repository and then:
 
 ```bash
 source bootstrap.sh
 ```
 
-### Add custom commands without creating a new fork
+## Add custom commands without creating a new fork
 
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
 
 
-## Main author
+## Contributions
+The main author is [Mathias Bynens](https://mathiasbynens.be/) which did an incredible work to create the most efficient dotfiles script I've ever seen. I still had to adapt his work for an Ubuntu environnement with Firefox, Atom and Terminator.
+I have to thanks [Evan Hahn](http://evanhahn.com/) for his custom vimperator config which is perfect since it is adapted to the use of DuckduckGo, Ghostery and NoScript. 
 
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
