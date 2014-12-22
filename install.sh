@@ -18,5 +18,25 @@ unity-scope-musicstores unity-scope-video-remote
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 gsettings set com.canonical.Unity.Lenses remote-content-search 'none'
 
+## ADD SOME REPOS
+sudo add-apt-repository -y ppa:tualatrix/ppa
+sudo add-apt-repository -y ppa:ubuntu-wine/ppa
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo add-apt-repository -y ppa:webupd8team/atom
+sudo add-apt-repository -y ppa:chris-lea/node.js
+sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+sudo apt-fast -y --force-yes update
+
+## INSTALL SOFTWARES
+sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit \
+                        python-software-properties python g++ make oracle-java7-installer \
+                        vlc exaile chromium-browser skype thunderbird thunderbird-locale-fr nautilus-dropbox \
+                        gimp gimp-data gimp-plugin-registry gimp-data-extras \
+                        terminator git atom nodejs mysql-workbench virtualbox virtualbox-qt virtualbox-dkms \
+                        wine steam \
+                        gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 gstreamer1.0-libav \
+                        flashplugin-installer \
+                        unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
+
 ## DOTFILES
 cd dotfiles && source bootstrap.sh --force
