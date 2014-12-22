@@ -38,5 +38,9 @@ sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit \
                         flashplugin-installer \
                         unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 
+## INSTALL THEMES FOR ATOM
+apm install solarized-dark-ui
+apm install solarized-light-ui
+
 ## DOTFILES
 cd dotfiles && source bootstrap.sh --force
