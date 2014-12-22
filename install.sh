@@ -42,5 +42,20 @@ sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit \
 apm install solarized-dark-ui
 apm install solarized-light-ui
 
+## SETTINGS
+# Privay
+gsettings set org.gnome.desktop.privacy remember-recent-files false
+# Launcher
+gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'application://skype.desktop', 'unity://expo-icon']"
+# Datetime
+gsettings set com.canonical.indicator.datetime show-date true
+gsettings set com.canonical.indicator.datetime show-day true
+gsettings set com.canonical.indicator.datetime show-seconds true
+# Sound
+gsettings set com.ubuntu.sound allow-amplified-volume true
+# Workspace
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
+
 ## DOTFILES
 cd dotfiles && source bootstrap.sh --force
