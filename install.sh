@@ -28,7 +28,7 @@ sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc)
 sudo apt-fast -y --force-yes update
 
 ## INSTALL SOFTWARES
-sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit \
+sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gparted \
                         python-software-properties python g++ make oracle-java7-installer \
                         vlc exaile chromium-browser skype thunderbird thunderbird-locale-fr nautilus-dropbox \
                         gimp gimp-data gimp-plugin-registry gimp-data-extras \
