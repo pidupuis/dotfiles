@@ -43,7 +43,7 @@ apm install solarized-dark-ui
 apm install solarized-light-ui
 
 ## SETTINGS
-# Privay
+# Privacy
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 # Launcher
 gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'application://skype.desktop', 'unity://expo-icon']"
