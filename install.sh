@@ -30,7 +30,7 @@ sudo apt-fast -y --force-yes update
 ## INSTALL SOFTWARES
 sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gparted \
                         python-software-properties python g++ make oracle-java7-installer \
-                        vlc exaile chromium-browser skype thunderbird thunderbird-locale-fr nautilus-dropbox \
+                        vlc exaile skype thunderbird thunderbird-locale-fr nautilus-dropbox \
                         gimp gimp-data gimp-plugin-registry gimp-data-extras \
                         terminator git atom nodejs mysql-workbench virtualbox virtualbox-qt virtualbox-dkms \
                         wine steam \
