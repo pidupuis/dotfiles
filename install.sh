@@ -46,6 +46,8 @@ apm install solarized-light-ui
 apm install save-session
 apm install project-manager
 apm install highlight-line
+apm install sort-lines
+apm install toggle-quotes
 apm install color-picker
 apm install todo-show
 apm install atom-beautify
