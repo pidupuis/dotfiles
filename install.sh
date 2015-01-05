@@ -32,7 +32,7 @@ sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gp
                         python-software-properties python g++ make oracle-java7-installer \
                         vlc exaile skype thunderbird thunderbird-locale-fr nautilus-dropbox \
                         gimp gimp-data gimp-plugin-registry gimp-data-extras \
-                        terminator git atom nodejs mysql-workbench virtualbox virtualbox-qt virtualbox-dkms \
+                        terminator git atom nodejs mysql-workbench virtualbox virtualbox-qt virtualbox-dkms maven2 \
                         wine steam \
                         gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 gstreamer1.0-libav \
                         flashplugin-installer \
