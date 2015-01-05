@@ -42,6 +42,17 @@ sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gp
 apm install solarized-dark-ui
 apm install solarized-light-ui
 
+## INSTALL PACKAGES FOR ATOM
+apm install highlight-line
+apm install color-picker
+apm install todo-show
+apm install atom-beautify
+apm install autocomplete-plus
+apm install javascript-snippets
+apm install jshint
+apm install linter
+apm install linter-javac
+
 ## SETTINGS
 # Privacy
 gsettings set org.gnome.desktop.privacy remember-recent-files false
