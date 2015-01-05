@@ -43,14 +43,18 @@ apm install solarized-dark-ui
 apm install solarized-light-ui
 
 ## INSTALL PACKAGES FOR ATOM
+apm install save-session
+apm install project-manager
 apm install highlight-line
 apm install color-picker
 apm install todo-show
 apm install atom-beautify
 apm install autocomplete-plus
+apm install git-plus
+apm install git-blame
 apm install javascript-snippets
-apm install jshint
 apm install linter
+apm install jshint
 apm install linter-javac
 
 ## SETTINGS
