@@ -12,7 +12,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias cd..="cd .."
 
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/Documents/"
+alias dr="cd ~/Dropbox/"
 alias dl="cd ~/Téléchargements/"
 alias p="cd ~/Programmation"
 
@@ -119,3 +120,9 @@ alias aptr="sudo apt-get remove"
 alias apts="sudo apt-cache search"
 alias aptu="sudo apt-get update && sudo apt-get upgrade"
 alias update="aptu; npmi -g npm; npmu -g"
+
+# ------------------------------------------------------------------------------
+# | Other Softwares |
+# ------------------------------------------------------------------------------
+alias cy="/home/pidupuis/Cytoscape_v3.1.1/Cytoscape"
+alias cysh="/home/pidupuis/Cytoscape_v3.1.1/cytoscape.sh"
