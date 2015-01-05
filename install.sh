@@ -38,6 +38,10 @@ sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gp
                         flashplugin-installer \
                         unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 
+## Download and install Cytoscape
+wget http://chianti.ucsd.edu/cytoscape-3.1.1/Cytoscape_3_1_1_unix.sh
+bash Cytoscape_3_1_1_unix.sh
+
 ## INSTALL THEMES FOR ATOM
 apm install solarized-dark-ui
 apm install solarized-light-ui
