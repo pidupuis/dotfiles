@@ -2,6 +2,8 @@
 
 ## Installation
 
+/!\ Modify username and email on top of .gitconfig file before to use this script
+
 ```bash
 cd ~/ && git clone https://github.com/pidupuis/dotfiles.git && cd dotfiles/ && bash install.sh
 ```
@@ -12,10 +14,6 @@ To update config, `cd` into your local `dotfiles` repository and then:
 ```bash
 source bootstrap.sh
 ```
-
-## Add custom commands without creating a new fork
-
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
 
 
 ## Contributions
