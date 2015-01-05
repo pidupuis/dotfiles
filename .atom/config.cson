@@ -4,6 +4,11 @@
       'solarized-dark-ui'
       'solarized-dark-syntax'
     ]
+    'ignoredNames': [
+      '.git'
+      '.svn'
+      '.DS_Store'
+    ]
   'welcome':
     'showOnStartup': false
   'editor':
