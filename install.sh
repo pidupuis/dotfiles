@@ -32,11 +32,24 @@ sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gp
                         python-software-properties python g++ make oracle-java7-installer \
                         vlc exaile skype thunderbird thunderbird-locale-fr nautilus-dropbox \
                         gimp gimp-data gimp-plugin-registry gimp-data-extras \
-                        terminator git atom nodejs mysql-workbench virtualbox virtualbox-qt virtualbox-dkms maven2 \
+                        terminator git atom mysql-workbench virtualbox virtualbox-qt virtualbox-dkms maven2 \
                         wine steam \
                         gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 gstreamer1.0-libav \
                         flashplugin-installer \
                         unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
+
+## Node and npm install without sudo
+mkdir ~/local
+cd ~/local
+git clone git://github.com/joyent/node.git
+cd node
+./configure --prefix=/home/pidupuis/local # Change this for dynamic path (relative path did not work...)
+make install
+cd ../
+git clone git://github.com/isaacs/npm.git
+cd npm
+make install
+cd ~/dotfiles/
 
 ## Download and install Cytoscape
 wget http://chianti.ucsd.edu/cytoscape-3.1.1/Cytoscape_3_1_1_unix.sh
