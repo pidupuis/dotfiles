@@ -50,6 +50,7 @@ git clone git://github.com/isaacs/npm.git
 cd npm
 make install
 cd ~/dotfiles/
+npm install -g bower
 
 ## Download and install Cytoscape
 wget http://chianti.ucsd.edu/cytoscape-3.1.1/Cytoscape_3_1_1_unix.sh
