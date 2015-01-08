@@ -21,3 +21,4 @@ The main author is [Mathias Bynens](https://mathiasbynens.be/) which did an incr
 
 I have to thanks [Evan Hahn](http://evanhahn.com/) for his custom vimperator config which is perfect since it is adapted to the use of DuckduckGo, Ghostery and NoScript. 
 
+Thanks to [Isaacs](https://gist.github.com/isaacs/579814) for his npm install without sudo.
