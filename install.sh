@@ -51,6 +51,7 @@ cd npm
 make install
 cd ~/dotfiles/
 npm install -g bower
+npm install -g grunt
 
 ## Download and install Cytoscape
 wget http://chianti.ucsd.edu/cytoscape-3.1.1/Cytoscape_3_1_1_unix.sh
