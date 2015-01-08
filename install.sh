@@ -39,17 +39,9 @@ sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gp
                         unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 
 ## Node and npm install without sudo
-mkdir ~/local
-cd ~/local
-git clone git://github.com/joyent/node.git
-cd node
-./configure --prefix=/home/pidupuis/local # Change this for dynamic path (relative path did not work...)
-make install
-cd ../
-git clone git://github.com/isaacs/npm.git
-cd npm
-make install
-cd ~/dotfiles/
+mkdir ~/npm
+sudo apt-fast install nodejs
+npm config set prefix ~/npm
 npm install -g bower
 npm install -g grunt-cli
 
