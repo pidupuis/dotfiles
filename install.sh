@@ -30,7 +30,7 @@ sudo apt-fast -y --force-yes update
 ## INSTALL SOFTWARES
 sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gparted \
                         python-software-properties python g++ make oracle-java7-installer \
-                        vlc exaile skype thunderbird thunderbird-locale-fr nautilus-dropbox \
+                        vlc exaile thunderbird thunderbird-locale-fr \
                         gimp gimp-data gimp-plugin-registry gimp-data-extras \
                         terminator git atom mysql-workbench virtualbox virtualbox-qt virtualbox-dkms maven2 \
                         wine steam \
@@ -74,7 +74,7 @@ apm install linter-javac
 # Privacy
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 # Launcher
-gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'application://skype.desktop', 'unity://expo-icon']"
+gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'unity://expo-icon']"
 # Datetime
 gsettings set com.canonical.indicator.datetime show-date true
 gsettings set com.canonical.indicator.datetime show-day true
