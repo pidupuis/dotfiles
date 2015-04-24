@@ -337,9 +337,7 @@ set! plugin.state.java=0
 set! plugin.state.npgtpo3dautoplugin=0
 set! plugin.state.o1dbrowserplugin=0
 set! plugin.state.onlivegameclientdetector=0
-
-" what is allowed? javascript, ironically
-set! noscript.global=true
+set! noscript.global=false
 set! noscript.forbidFlash=false
 set! noscript.forbidFonts=false
 set! noscipt.forbidMedia=false
