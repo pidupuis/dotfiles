@@ -19,24 +19,29 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-ama
 gsettings set com.canonical.Unity.Lenses remote-content-search 'none'
 
 ## ADD SOME REPOS
-sudo add-apt-repository -y ppa:tualatrix/ppa
-sudo add-apt-repository -y ppa:ubuntu-wine/ppa
-sudo add-apt-repository -y ppa:webupd8team/java
-sudo add-apt-repository -y ppa:webupd8team/atom
-sudo add-apt-repository -y ppa:chris-lea/node.js
+sudo add-apt-repository -y ppa:tualatrix/ppa # Ubuntu tweak
+sudo add-apt-repository -y ppa:ubuntu-wine/ppa # Wine
+sudo add-apt-repository -y ppa:webupd8team/atom # Atom
+sudo add-apt-repository -y ppa:chris-lea/node.js # Nodejs
 sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
 sudo apt-fast -y --force-yes update
 
 ## INSTALL SOFTWARES
-sudo apt-fast -y --force-yes install aptitude synaptic ubuntu-tweak bleachbit gparted \
-                        python-software-properties python g++ make oracle-java7-installer \
-                        vlc exaile thunderbird thunderbird-locale-fr \
-                        gimp gimp-data gimp-plugin-registry gimp-data-extras \
-                        terminator git atom mysql-workbench virtualbox virtualbox-qt virtualbox-dkms maven2 \
-                        wine steam \
-                        gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 gstreamer1.0-libav \
-                        flashplugin-installer \
-                        unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
+sudo apt-fast -y --force-yes install aptitude synaptic # Package manager
+sudo apt-fast -y --force-yes install ubuntu-tweak # Config GUI
+sudo apt-fast -y --force-yes install bleachbit # Memory cleaner
+sudo apt-fast -y --force-yes install gparted # Partition manager
+sudo apt-fast -y --force-yes install python-software-properties python g++ make # Nodejs deps
+sudo apt-fast -y --force-yes install vlc exaile # Media tools
+sudo apt-fast -y --force-yes install thunderbird thunderbird-locale-fr # Email client
+sudo apt-fast -y --force-yes install gimp gimp-data gimp-plugin-registry gimp-data-extras # Image editor
+sudo apt-fast -y --force-yes install terminator git atom # Dev tools
+sudo apt-fast -y --force-yes install wine # Windows tool runner
+sudo apt-fast -y --force-yes install gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla \
+                        icedax tagtool easytag id3tool lame nautilus-script-audio-convert \
+                        libmad0 mpg321 gstreamer1.0-libav # Multimedia codecs
+sudo apt-fast -y --force-yes install unace unrar zip unzip p7zip-full p7zip-rar sharutils \
+                        rar uudeview mpack arj cabextract file-roller # Archive tools
 
 ## Node and npm install without sudo
 mkdir ~/npm
@@ -45,9 +50,11 @@ npm config set prefix ~/npm
 npm install -g bower
 npm install -g grunt-cli
 
-## Download and install Cytoscape
-wget http://chianti.ucsd.edu/cytoscape-3.1.1/Cytoscape_3_1_1_unix.sh
-bash Cytoscape_3_1_1_unix.sh
+## Owncloud client
+echo "deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_$(grep ^DISTRIB_RELEASE= /etc/lsb-release | cut -d= -f2)/ /" | sudo tee -a /etc/apt/sources.list.d/owncloud.list
+wget http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_$(grep ^DISTRIB_RELEASE= /etc/lsb-release | cut -d= -f2)/Release.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install owncloud-client
 
 ## INSTALL THEMES FOR ATOM
 apm install solarized-dark-ui
@@ -74,7 +81,7 @@ apm install linter-javac
 # Privacy
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 # Launcher
-gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'unity://expo-icon']"
+gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://thunderbird.desktop', 'application://atom.desktop', 'unity://expo-icon']"
 # Datetime
 gsettings set com.canonical.indicator.datetime show-date true
 gsettings set com.canonical.indicator.datetime show-day true
