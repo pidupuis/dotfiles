@@ -42,6 +42,7 @@ sudo apt-fast -y --force-yes install gstreamer0.10-plugins-ugly gxine libdvdread
                         libmad0 mpg321 gstreamer1.0-libav # Multimedia codecs
 sudo apt-fast -y --force-yes install unace unrar zip unzip p7zip-full p7zip-rar sharutils \
                         rar uudeview mpack arj cabextract file-roller # Archive tools
+sudo apt-fast -y --force-yes install pidgin pidgin-otr # XMPP client
 
 ## Node and npm install without sudo
 mkdir ~/npm
@@ -81,7 +82,7 @@ apm install linter-javac
 # Privacy
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 # Launcher
-gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://thunderbird.desktop', 'application://atom.desktop', 'unity://expo-icon']"
+gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://thunderbird.desktop', 'application://pidgin.desktop', 'application://atom.desktop', 'unity://expo-icon']"
 # Datetime
 gsettings set com.canonical.indicator.datetime show-date true
 gsettings set com.canonical.indicator.datetime show-day true
