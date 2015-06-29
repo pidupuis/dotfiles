@@ -64,7 +64,8 @@ function installCommon() {
 	apm install javascript-snippets
 	apm install linter
 	apm install jshint
-	apm install linter-javac
+	apm install go-to-line
+	apm install angularjs
 
 	## SETTINGS
 	# Privacy
@@ -108,7 +109,7 @@ if [ "$1" == "--perso" -o "$1" == "-p" ]; then
 	installCommon;
 	installPerso;
 else
-	read -p "Would you like to install softwares usually dedicated to spare time ? (y/n) " -n 1;
+	read -p "Would you like to install softwares usually dedicated to spare time ? (y/N) " -n 1;
 	echo "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		installCommon;

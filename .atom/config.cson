@@ -1,15 +1,24 @@
-'global':
+'*':
+  'editor':
+    invisibles: {}
+    showInvisibles: true
+    showIndentGuide: true
+    fontSize: 12
+    lineHeight: 1.45
+    scrollPastEnd: true
+    fontFamily: "Menlo"
   'core':
     'themes': [
       'solarized-dark-ui'
       'solarized-dark-syntax'
     ]
-    'ignoredNames': [
+  'hideGitIgnoredFiles': true
+  'ignoredNames': [
       '.git'
       '.svn'
       '.DS_Store'
+      '**/nodes_modules/*'
+      '**/bower_components/*'
     ]
   'welcome':
     'showOnStartup': false
-  'editor':
-    'invisibles': {}
