@@ -399,3 +399,6 @@ set! noscript.sound=false
 set! noscript.ABE.notify=false
 set! noscript.forbidMetaRefresh.notify=false
 set! noscript.xss.notify=false
+
+" Ctrl-a
+inoremap <C-a> <C-Home><C-S-End>
