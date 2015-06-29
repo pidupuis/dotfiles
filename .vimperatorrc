@@ -170,6 +170,26 @@ set! network.http.referer.XOriginPolicy=1
 set! network.http.referer.spoofSource=true
 set! network.http.referer.trimmingPolicy=2
 
+" Firefox stats collecting
+datareporting.healthreport.service.enabled=false
+datareporting.healthreport.uploadEnabled=false
+
+" Encrypted Media Extensions (DRM)
+media.eme.enabled=false
+media.gmp-eme-adobe.enabled=false
+
+" Firefox Hello
+loop.enabled=false
+
+" Pocket integration
+browser.pocket.enabled=false
+
+" WebRTC
+media.peerconnection.enabled=false
+
+" Geolocation
+geo.enabled=false
+
 " Greasemonkey
 " ------------
 
