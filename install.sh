@@ -34,7 +34,7 @@ function installCommon() {
 	sudo apt-fast -y --force-yes install python-software-properties python g++ make # Nodejs deps
 	sudo apt-fast -y --force-yes install thunderbird thunderbird-locale-fr # Email client
 	sudo apt-fast -y --force-yes install gimp gimp-data gimp-plugin-registry gimp-data-extras # Image editor
-	sudo apt-fast -y --force-yes install terminator git atom # Dev tools
+	sudo apt-fast -y --force-yes install terminator git atom vim # Dev tools
 	sudo apt-fast -y --force-yes install unace unrar zip unzip p7zip-full p7zip-rar sharutils \
 		                rar uudeview mpack arj cabextract file-roller # Archive tools
 

@@ -13,8 +13,8 @@ set maxitems=5
 " keep messages around for 2 seconds
 set messagetimeout=2000
 
-" DuckDuckGo search
-set defsearch=duckduckgo
+" Qwant search
+set defsearch=qwant
 
 " set the right hintchars
 set hc=jfkdlsawoeicmghqpz
@@ -59,11 +59,11 @@ hi CmdLine>* font-family: "Source Code Pro", Inconsolata, Consolas, Monaco, mono
 " Firefox
 " -------
 
-" DuckDuckGo
-set! browser.startup.homepage=https://duckduckgo.com/?kh=1&kj=r2&ko=s&kp=-1&ky=p
-set! browser.search.selectedEngine=DuckDuckGo
-set! browser.search.defaultenginename=DuckDuckGo
-set! keyword.URL=https://duckduckgo.com/?q=
+" Qwant
+set! browser.startup.homepage=https://www.qwant.com/
+set! browser.search.selectedEngine=Qwant.com
+set! browser.search.defaultenginename=Qwant.com
+set! keyword.URL=https://www.qwant.com/?q=
 set! browser.search.suggest.enabled=false
 set! browser.search.update=true
 

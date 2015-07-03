@@ -9,10 +9,16 @@ cd ~/ && git clone https://github.com/pidupuis/dotfiles.git && cd dotfiles/ && b
 ```
 This will install preferred softwares and then apply the dotfiles script to configure system and softwares.
 
-To update config, `cd` into your local `dotfiles` repository and then:
+If you want to only install the system configuration without installing softwares:
 
 ```bash
-source bootstrap.sh
+cd ~/ && git clone https://github.com/pidupuis/dotfiles.git && cd dotfiles/ && source bootstrap.sh
+```
+
+To update config:
+
+```bash
+cd ~/dotfiles/ && source bootstrap.sh
 ```
 
 
