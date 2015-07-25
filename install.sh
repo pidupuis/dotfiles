@@ -27,16 +27,22 @@ function installCommon() {
 	sudo apt-fast -y --force-yes update
 
 	## INSTALL SOFTWARES
-	sudo apt-fast -y --force-yes install aptitude synaptic # Package manager
-	sudo apt-fast -y --force-yes install ubuntu-tweak # Config GUI
-	sudo apt-fast -y --force-yes install bleachbit # Memory cleaner
-	sudo apt-fast -y --force-yes install gparted # Partition manager
-	sudo apt-fast -y --force-yes install python-software-properties python g++ make # Nodejs deps
-	sudo apt-fast -y --force-yes install thunderbird thunderbird-locale-fr # Email client
-	sudo apt-fast -y --force-yes install gimp gimp-data gimp-plugin-registry gimp-data-extras # Image editor
-	sudo apt-fast -y --force-yes install terminator git atom vim # Dev tools
-	sudo apt-fast -y --force-yes install unace unrar zip unzip p7zip-full p7zip-rar sharutils \
-		                rar uudeview mpack arj cabextract file-roller # Archive tools
+	softs=(
+		aptitude synaptic # Package manager
+		ubuntu-tweak # Config GUI
+		bleachbit # Memory cleaner
+		gparted # Partition manager
+		python-software-properties python g++ make # Nodejs deps
+		thunderbird thunderbird-locale-fr # Email client
+		gimp gimp-data gimp-plugin-registry gimp-data-extras # Image editor
+		terminator git atom vim # Dev tools
+		unace unrar zip unzip p7zip-full p7zip-rar sharutils rar # Archive tools
+		uudeview mpack arj cabextract file-roller
+		)
+	for s in "${softs[@]}"
+	do
+		sudo apt-fast -y --force-yes install $s
+	done
 
 	## Node and npm install without sudo
 	mkdir ~/npm
@@ -45,27 +51,31 @@ function installCommon() {
 	npm install -g bower
 	npm install -g grunt-cli
 
-	## INSTALL THEMES FOR ATOM
-	apm install solarized-dark-ui
-	apm install solarized-light-ui
-
-	## INSTALL PACKAGES FOR ATOM
-	apm install save-session
-	apm install project-manager
-	apm install highlight-line
-	apm install sort-lines
-	apm install toggle-quotes
-	apm install color-picker
-	apm install todo-show
-	apm install atom-beautify
-	apm install autocomplete-plus
-	apm install git-plus
-	apm install git-blame
-	apm install javascript-snippets
-	apm install linter
-	apm install jshint
-	apm install go-to-line
-	apm install angularjs
+	## ATOM THEMES AND PACKAGES
+	atoms=(
+		solarized-dark-ui
+		solarized-light-ui
+		save-session
+		project-manager
+		highlight-line
+		sort-lines
+		toggle-quotes
+		color-picker
+		todo-show
+		atom-beautify
+		autocomplete-plus
+		git-plus
+		git-blame
+		javascript-snippets
+		linter
+		jshint
+		go-to-line
+		angularjs
+		)
+	for p in "${atoms[@]}"
+	do
+		apm install $p
+	done
 
 	## SETTINGS
 	# Privacy
@@ -96,6 +106,10 @@ function installPerso() {
 		                libmad0 mpg321 gstreamer1.0-libav # Multimedia codecs
 	sudo apt-fast -y --force-yes install pidgin pidgin-otr # XMPP client
 	sudo apt-fast -y --force-yes install telegram # Instant messaging
+	cd ~/
+	git clone git://github.com/joeyh/github-backup
+	cd github-backup
+	make
 
 	## Owncloud client
 	echo "deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_$(grep ^DISTRIB_RELEASE= /etc/lsb-release | cut -d= -f2)/ /" | sudo tee -a /etc/apt/sources.list.d/owncloud.list
