@@ -65,13 +65,11 @@ function installCommon() {
 		color-picker
 		todo-show
 		atom-beautify
-		autocomplete-plus
 		git-plus
 		git-blame
 		javascript-snippets
 		linter
 		jshint
-		go-to-line
 		angularjs
 		linter-pep8
 		linter-pyflakes
