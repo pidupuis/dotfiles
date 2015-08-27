@@ -4,14 +4,11 @@ function installCommon() {
 	gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
 	gsettings set org.gnome.desktop.session idle-delay 0
 
-	## INSTALL APT-FAST
-	sudo apt-add-repository ppa:saiarcot895/myppa -y && sudo apt-get update && sudo apt-get -y install apt-fast
-
 	## UPDATE SYSTEM
-	sudo apt-fast -y --force-yes update && sudo apt-fast -y --force-yes upgrade
+	sudo apt-get -y --force-yes update && sudo apt-get -y --force-yes upgrade
 
 	## REMOVE SOFTWARES
-	sudo apt-fast -y --force-yes autoremove software-center landscape-client-ui-install example-content rhythmbox* \
+	sudo apt-get -y --force-yes autoremove software-center landscape-client-ui-install example-content rhythmbox* \
 	thunderbird* totem totem-common unity-lens-shopping unity-lens-friends \
 	unity-scope-musicstores unity-scope-video-remote
 
@@ -24,7 +21,7 @@ function installCommon() {
 	sudo add-apt-repository -y ppa:webupd8team/atom # Atom
 	sudo add-apt-repository -y ppa:chris-lea/node.js # Nodejs
 	sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-	sudo apt-fast -y --force-yes update
+	sudo apt-get -y --force-yes update
 
 	## INSTALL SOFTWARES
 	softs=(
@@ -41,19 +38,19 @@ function installCommon() {
 		)
 	for s in "${softs[@]}"
 	do
-		sudo apt-fast -y --force-yes install $s
+		sudo apt-get -y --force-yes install $s
 	done
 
 	## Node and npm install without sudo
 	mkdir ~/npm
-	sudo apt-fast install nodejs
+	sudo apt-get install nodejs
 	npm config set prefix ~/npm
 	npm install -g bower
 	npm install -g grunt-cli
 	npm install -g gulp
 	
 	## Python packages
-	sudo apt-fast install pip
+	sudo apt-get install pip
 	pip install pep8 pyflakes
 
 	## ATOM THEMES AND PACKAGES
@@ -106,13 +103,13 @@ function installPerso() {
 	sudo add-apt-repository -y ppa:atareao/telegram # Telegram
 
 	## INSTALL SOFTWARES
-	sudo apt-fast -y --force-yes install vlc exaile # Media tools
-	sudo apt-fast -y --force-yes install wine # Windows tool runner
-	sudo apt-fast -y --force-yes install gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla \
+	sudo apt-get -y --force-yes install vlc exaile # Media tools
+	sudo apt-get -y --force-yes install wine # Windows tool runner
+	sudo apt-get -y --force-yes install gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla \
 		                icedax tagtool easytag id3tool lame nautilus-script-audio-convert \
 		                libmad0 mpg321 gstreamer1.0-libav # Multimedia codecs
-	sudo apt-fast -y --force-yes install pidgin pidgin-otr # XMPP client
-	sudo apt-fast -y --force-yes install telegram # Instant messaging
+	sudo apt-get -y --force-yes install pidgin pidgin-otr # XMPP client
+	sudo apt-get -y --force-yes install telegram # Instant messaging
 	cd ~/
 	git clone git://github.com/joeyh/github-backup
 	cd github-backup
