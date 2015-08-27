@@ -6,7 +6,6 @@
     fontSize: 12
     lineHeight: 1.45
     scrollPastEnd: true
-    fontFamily: "Menlo"
   'core':
     'themes': [
       'solarized-dark-ui'
