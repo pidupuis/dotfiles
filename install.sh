@@ -43,14 +43,14 @@ function installCommon() {
 
 	## Node and npm install without sudo
 	mkdir ~/npm
-	sudo apt-get install nodejs
+	sudo apt-get -y --force-yes install nodejs
 	npm config set prefix ~/npm
 	npm install -g bower
 	npm install -g grunt-cli
 	npm install -g gulp
 	
 	## Python packages
-	sudo apt-get install pip
+	sudo apt-get -y --force-yes install python-pip
 	pip install pep8 pyflakes
 
 	## ATOM THEMES AND PACKAGES
@@ -118,8 +118,8 @@ function installPerso() {
 	## Owncloud client
 	echo "deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_$(grep ^DISTRIB_RELEASE= /etc/lsb-release | cut -d= -f2)/ /" | sudo tee -a /etc/apt/sources.list.d/owncloud.list
 	wget http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_$(grep ^DISTRIB_RELEASE= /etc/lsb-release | cut -d= -f2)/Release.key -O - | sudo apt-key add -
-	sudo apt-get update
-	sudo apt-get install owncloud-client
+	sudo apt-get -y --force-yes update
+	sudo apt-get -y --force-yes install owncloud-client
 }
 
 ## INSTALL
