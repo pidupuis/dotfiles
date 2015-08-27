@@ -50,6 +50,11 @@ function installCommon() {
 	npm config set prefix ~/npm
 	npm install -g bower
 	npm install -g grunt-cli
+	npm install -g gulp
+	
+	## Python packages
+	sudo apt-fast install pip
+	pip install pep8 pyflakes
 
 	## ATOM THEMES AND PACKAGES
 	atoms=(
@@ -71,6 +76,8 @@ function installCommon() {
 		jshint
 		go-to-line
 		angularjs
+		linter-pep8
+		linter-pyflakes
 		)
 	for p in "${atoms[@]}"
 	do
