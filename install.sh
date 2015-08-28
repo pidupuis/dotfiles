@@ -32,7 +32,7 @@ function installCommon() {
 		python-software-properties python g++ make # Nodejs deps
 		thunderbird thunderbird-locale-fr # Email client
 		gimp gimp-data gimp-plugin-registry gimp-data-extras # Image editor
-		terminator git atom vim chromium-browser # Dev tools
+		terminator git atom vim chromium-browser curl # Dev tools
 		unace unrar zip unzip p7zip-full p7zip-rar sharutils rar # Archive tools
 		uudeview mpack arj cabextract file-roller
 		)
