@@ -3,9 +3,10 @@
     invisibles: {}
     showInvisibles: true
     showIndentGuide: true
-    fontSize: 12
+    fontSize: 15
     lineHeight: 1.45
     scrollPastEnd: true
+    preferredLineLength: 120
   'core':
     'themes': [
       'solarized-dark-ui'
@@ -21,3 +22,7 @@
     ]
   'welcome':
     'showOnStartup': false
+  "save-session":
+    dataSaveFolder: "/home/pidupuis/.atom/packages/save-session/projects"
+  "linter-pep8":
+    maxLineLength: 120
