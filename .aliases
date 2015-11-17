@@ -92,6 +92,8 @@ alias gg='git grep'
 alias gre='git rebase'
 alias gme='git merge'
 
+alias git_clean='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "dev" | xargs -n 1 git branch -d'
+
 # ------------------------------------------------------------------------------
 # | Grunt |
 # ------------------------------------------------------------------------------
