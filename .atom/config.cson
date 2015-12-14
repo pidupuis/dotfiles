@@ -7,12 +7,7 @@
     lineHeight: 1.45
     scrollPastEnd: true
     preferredLineLength: 120
-  'core':
-    'themes': [
-      'solarized-dark-ui'
-      'solarized-dark-syntax'
-    ]
-  'hideGitIgnoredFiles': true
+  'hideGitIgnoredFiles': false
   'ignoredNames': [
       '.git'
       '.svn'
