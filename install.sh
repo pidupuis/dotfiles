@@ -73,6 +73,7 @@ function installCommon() {
 		angularjs
 		linter-pep8
 		linter-pyflakes
+		file-icons
 		)
 	for p in "${atoms[@]}"
 	do
