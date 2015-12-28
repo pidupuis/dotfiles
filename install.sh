@@ -17,16 +17,13 @@ function installCommon() {
 	gsettings set com.canonical.Unity.Lenses remote-content-search 'none'
 
 	## ADD SOME REPOS
-	sudo add-apt-repository -y ppa:tualatrix/ppa # Ubuntu tweak
 	sudo add-apt-repository -y ppa:webupd8team/atom # Atom
-	sudo add-apt-repository -y ppa:chris-lea/node.js # Nodejs
 	sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
 	sudo apt-get -y --force-yes update
 
 	## INSTALL SOFTWARES
 	softs=(
 		aptitude synaptic # Package manager
-		ubuntu-tweak # Config GUI
 		bleachbit # Memory cleaner
 		gparted # Partition manager
 		python-software-properties python g++ make # Nodejs deps
