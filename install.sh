@@ -42,9 +42,11 @@ function installCommon() {
 	done
 
 	## Node and npm install without sudo
-	mkdir ~/npm
-	sudo apt-get -y --force-yes install nodejs
-	npm config set prefix ~/npm
+	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+        sudo apt-get -y --force-yes install nodejs
+        mkdir ~/npm
+        npm config set prefix ~/npm
+        npm install -g npm@3.5.2
 	npm install -g bower
 	npm install -g grunt-cli
 	npm install -g gulp
