@@ -12,10 +12,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias cd..="cd .."
 
-alias d="cd ~/Documents/"
-alias dr="cd ~/Dropbox/"
-alias dl="cd ~/Téléchargements/"
-alias p="cd ~/Programmation"
+alias dl="cd ~/Downloads/"
 
 # ------------------------------------------------------------------------------
 # | ls |
@@ -57,7 +54,9 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 alias c="clear"
 alias ch="history -c && > ~/.bash_history"
 alias m="man"
-alias rm="rm -rf"
+alias reboot="systemctl reboot"
+alias suspend="systemctl suspend"
+alias poweroff="sudo pacman -Syu && systemctl poweroff"
 
 # ------------------------------------------------------------------------------
 # | Network |
@@ -65,6 +64,14 @@ alias rm="rm -rf"
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | cut -d: -f2 | cut -d' ' -f1"
+
+#───────────────────────────────────────────────────────────────────────────────
+# Stats
+#───────────────────────────────────────────────────────────────────────────────
+alias df='df -h'
+alias du='du -h -d 2'
+alias battery='acpi | cut -d " " -f3-'
+alias cpu-temp='sensors | grep "Physical" | cut -c35-40'
 
 # ------------------------------------------------------------------------------
 # | Git |
@@ -92,39 +99,14 @@ alias gg='git grep'
 alias gre='git rebase'
 alias gme='git merge'
 
-alias git_clean='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "dev" | xargs -n 1 git branch -d'
-
-# ------------------------------------------------------------------------------
-# | Grunt |
-# ------------------------------------------------------------------------------
-
-# Make Grunt print stack traces by default
-command -v grunt > /dev/null && alias grunt="grunt --stack"
-
-# ------------------------------------------------------------------------------
-# | Npm |
-# ------------------------------------------------------------------------------
-
-alias npmrd="npm run dev"
-alias npms="npm start"
-
-alias npmi="npm install"
-alias npmr="npm uninstall"
-alias npms="npm search"
-alias npmu="npm update"
-
-# ------------------------------------------------------------------------------
-# | Package manager |
-# ------------------------------------------------------------------------------
-
-alias apti="sudo apt-get install"
-alias aptr="sudo apt-get remove"
-alias apts="sudo apt-cache search"
-alias aptu="sudo apt-get update && sudo apt-get upgrade"
-alias update="aptu; npmi -g npm; npmu -g"
-
-# ------------------------------------------------------------------------------
-# | Other Softwares |
-# ------------------------------------------------------------------------------
-alias cy="/home/pidupuis/Cytoscape_v3.1.1/Cytoscape"
-alias cysh="/home/pidupuis/Cytoscape_v3.1.1/cytoscape.sh"
+#───────────────────────────────────────────────────────────────────────────────
+# Shortcuts for pacman
+#───────────────────────────────────────────────────────────────────────────────
+alias pacupg="sudo pacman -Syu" # Synchronize with repositories and then upgrade packages that are out of date on the local system.
+alias pacin="sudo pacman -S"    # Install specific package from the repositories
+alias pacins="sudo pacman -U"   # Install specific package not from the repositories but from a file
+alias pacre="sudo pacman -Rns"  # Remove the specified package(s), its configuration(s) and unneeded dependencies
+alias pacrep="pacman -Si"       # Display information about a given package in the repositories
+alias pacreps="pacman -Ss"      # Search for package(s) in the repositories
+alias pacloc="pacman -Qi"       # Display information about a given package in the local database
+alias paclocs="pacman -Qs"      # Search for package(s) in the local database

@@ -7,6 +7,17 @@
 	# View the current working tree status using the short format
 	ss = status -s
 
+  co = checkout
+
+  # credit: http://bit.ly/10MMsoF
+  ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+  snapshot = !git stash save -u "snapshot: $(date)" && git stash apply "stash@{0}"
+
+  # credit: http://bit.ly/w06LOM
+  ribbon = tag --force _ribbon origin/master
+  catchup = log --patch --reverse --topo-order _ribbon..origin/master
+
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
@@ -39,6 +50,8 @@
 
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
+
+  edit = "!f() { git rebase --interactive HEAD~$@; }; f"
 
 [apply]
 

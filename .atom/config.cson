@@ -3,7 +3,7 @@
     invisibles: {}
     showInvisibles: true
     showIndentGuide: true
-    fontSize: 15
+    fontSize: 16
     lineHeight: 1.45
     scrollPastEnd: true
     preferredLineLength: 120
@@ -18,7 +18,3 @@
     ]
   'welcome':
     'showOnStartup': false
-  "save-session":
-    dataSaveFolder: "/home/pidupuis/.atom/packages/save-session/projects"
-  "linter-pep8":
-    maxLineLength: 120
