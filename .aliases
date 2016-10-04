@@ -56,21 +56,21 @@ alias ch="history -c && > ~/.bash_history"
 alias m="man"
 alias reboot="systemctl reboot"
 alias suspend="systemctl suspend"
-alias poweroff="sudo pacman -Syu && systemctl poweroff"
+alias poweroff="sudo su -c 'yum -y update' && systemctl poweroff"
 
 # ------------------------------------------------------------------------------
 # | Network |
 # ------------------------------------------------------------------------------
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | cut -d: -f2 | cut -d' ' -f1"
+alias localip="ifconfig | grep 'inet' | grep -v '127.0.0.1' | cut -d: -f2 | cut -d' ' -f10"
 
 #───────────────────────────────────────────────────────────────────────────────
 # Stats
 #───────────────────────────────────────────────────────────────────────────────
 alias df='df -h'
 alias du='du -h -d 2'
-alias battery='acpi | cut -d " " -f3-'
+alias battery='upower -i `upower -e | grep \'BAT\'`'
 alias cpu-temp='sensors | grep "Physical" | cut -c35-40'
 
 # ------------------------------------------------------------------------------
@@ -99,14 +99,3 @@ alias gg='git grep'
 alias gre='git rebase'
 alias gme='git merge'
 
-#───────────────────────────────────────────────────────────────────────────────
-# Shortcuts for pacman
-#───────────────────────────────────────────────────────────────────────────────
-alias pacupg="sudo pacman -Syu" # Synchronize with repositories and then upgrade packages that are out of date on the local system.
-alias pacin="sudo pacman -S"    # Install specific package from the repositories
-alias pacins="sudo pacman -U"   # Install specific package not from the repositories but from a file
-alias pacre="sudo pacman -Rns"  # Remove the specified package(s), its configuration(s) and unneeded dependencies
-alias pacrep="pacman -Si"       # Display information about a given package in the repositories
-alias pacreps="pacman -Ss"      # Search for package(s) in the repositories
-alias pacloc="pacman -Qi"       # Display information about a given package in the local database
-alias paclocs="pacman -Qs"      # Search for package(s) in the local database

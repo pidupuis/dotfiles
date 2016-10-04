@@ -1,20 +1,47 @@
 function installCommon() {
-	sudo pacman Syyu
+	## SETTINGS
+	# Privacy
+	gsettings set org.gnome.desktop.privacy remember-recent-files false
+	# Deactivate screen saver
+	gsettings set org.gnome.desktop.screensaver lock-enabled false
+	gsettings set org.gnome.desktop.session idle-delay 0
+
+	## UPDATE SYSTEM
+	sudo yum -y update && sudo yum -y upgrade
 
 	## INSTALL SOFTWARES
 	softs=(
-			rsync, vim, nodejs
-	)
+		bleachbit # Memory cleaner
+		gparted # Partition manager
+		bind-utils vim iotop screen yum-utils lm_sensors
+		gimp gimp-data-extras # Image editor
+		terminator git vim curl # Dev tools
+		zip unzip sharutils # Archive tools
+		arj cabextract file-roller
+		)
 	for s in "${softs[@]}"
 	do
-		pacman -Sy $s
+		sudo yum -y install $s
 	done
 
-	## NPM
-  mkdir ~/npm
-  npm config set prefix ~/npm
-  npm install -g npm@latest
+	curl -sL https://github.com/atom/atom/releases/download/v1.10.2/atom.x86_64.rpm > /tmp/atom.x86_64.rpm
+	sudo yum -y install /tmp/atom.x86_64.rpm
+
+	## Node and npm install without sudo
+	curl -sL https://rpm.nodesource.com/setup_4.x | bash -
+        sudo yum -y install nodejs
+        mkdir ~/npm
+        npm config set prefix ~/npm
+	npm set progress=false
+        npm install -g npm@latest
 	npm install -g bower
+	npm install -g grunt-cli
+	npm install -g gulp
+	
+	## Python packages
+	sudo yum -y install python-pip
+	sudo pip install --upgrade pip
+	sudo pip install flake8
 
 	## ATOM THEMES AND PACKAGES
 	atoms=(
@@ -26,14 +53,11 @@ function installCommon() {
 		color-picker
 		todo-show
 		atom-beautify
-		git-plus
-		git-blame
 		javascript-snippets
 		linter
 		jshint
 		angularjs
-		linter-pep8
-		linter-pyflakes
+		linter-flake8
 		file-icons
 		)
 	for p in "${atoms[@]}"
@@ -43,7 +67,7 @@ function installCommon() {
 }
 
 function installPerso() {
-
+	echo "Nothing to install"
 }
 
 ## INSTALL
