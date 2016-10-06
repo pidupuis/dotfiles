@@ -1,5 +1,5 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$HOME/npm/bin:$PATH";
+export PATH="$HOME/bin:$HOME/npm/bin:$HOME/.pyenv/bin:$HOME/.pyenv/shims:$HOME/.pyenv-virtualenv/bin:$HOME/.pyenv-virtualenv/shims:$HOME/.pyenv-virtualenvwrapper/bin:$HOME/.pyenv-virtualenvwrapper/shims:$PATH";
 
 # Load the shell dotfiles, and then some:
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
@@ -23,3 +23,7 @@ fi;
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+
+# Pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

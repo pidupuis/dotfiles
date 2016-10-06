@@ -13,9 +13,10 @@ function installCommon() {
 	softs=(
 		bleachbit # Memory cleaner
 		gparted # Partition manager
-		bind-utils vim iotop screen yum-utils lm_sensors
+		bind-utils vim iotop screen yum-utils lm_sensors # Stuffs
+		gcc gcc-c++ make git patch openssl-devel zlib-devel readline-devel sqlite-devel bzip2-devel # For pyenv
 		gimp gimp-data-extras # Image editor
-		terminator git vim curl # Dev tools
+		terminator git vim curl Django # Dev tools
 		zip unzip sharutils # Archive tools
 		arj cabextract file-roller
 		)
@@ -24,6 +25,12 @@ function installCommon() {
 		sudo yum -y install $s
 	done
 
+	# Pyenv
+	git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+	git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv-virtualenv
+	git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ~/.pyenv-virtualenvwrapper
+
+	# Atom
 	curl -sL https://github.com/atom/atom/releases/download/v1.10.2/atom.x86_64.rpm > /tmp/atom.x86_64.rpm
 	sudo yum -y install /tmp/atom.x86_64.rpm
 
