@@ -5,10 +5,10 @@ function installCommon() {
 	gsettings set org.gnome.desktop.session idle-delay 0
 
 	## UPDATE SYSTEM
-	sudo apt-get -y --force-yes update && sudo apt-get -y --force-yes upgrade
+	sudo apt-get -y update && sudo apt-get -y upgrade
 
 	## REMOVE SOFTWARES
-	sudo apt-get -y --force-yes autoremove software-center landscape-client-ui-install example-content rhythmbox* \
+	sudo apt-get -y autoremove software-center landscape-client-ui-install example-content rhythmbox* \
 	thunderbird* totem totem-common unity-lens-shopping unity-lens-friends \
 	unity-scope-musicstores unity-scope-video-remote
 
@@ -19,7 +19,7 @@ function installCommon() {
 	## ADD SOME REPOS
 	sudo add-apt-repository -y ppa:webupd8team/atom # Atom
 	sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
-	sudo apt-get -y --force-yes update
+	sudo apt-get -y update
 
 	## INSTALL SOFTWARES
 	softs=(
@@ -35,21 +35,22 @@ function installCommon() {
 		)
 	for s in "${softs[@]}"
 	do
-		sudo apt-get -y --force-yes install $s
+		sudo apt-get -y install $s
 	done
 
 	## Node and npm install without sudo
-	curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-        sudo apt-get -y --force-yes install nodejs
+	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+        sudo apt-get -y install nodejs
         mkdir ~/npm
         npm config set prefix ~/npm
-        npm install -g npm@3.5.2
+        npm install -g npm@latest
 	npm install -g bower
 	npm install -g grunt-cli
 	npm install -g gulp
 	
 	## Python packages
-	sudo apt-get -y --force-yes install python-pip
+	sudo apt-get -y install python-pip
+	sudo pip install --upgrade pip
 	pip install pep8 pyflakes
 
 	## ATOM THEMES AND PACKAGES
@@ -70,8 +71,7 @@ function installCommon() {
 		linter
 		jshint
 		angularjs
-		linter-pep8
-		linter-pyflakes
+		linter-flake8
 		file-icons
 		)
 	for p in "${atoms[@]}"
@@ -97,27 +97,24 @@ function installCommon() {
 
 function installPerso() {
 	## ADD SOME REPOS
-	sudo add-apt-repository -y ppa:ubuntu-wine/ppa # Wine
 	sudo add-apt-repository -y ppa:atareao/telegram # Telegram
 
 	## INSTALL SOFTWARES
-	sudo apt-get -y --force-yes install vlc exaile # Media tools
-	sudo apt-get -y --force-yes install wine # Windows tool runner
-	sudo apt-get -y --force-yes install gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla \
+	sudo apt-get -y install vlc exaile # Media tools
+	sudo apt-get -y install wine # Windows tool runner
+	sudo apt-get -y install gstreamer0.10-plugins-ugly gxine libdvdread4 totem-mozilla \
 		                icedax tagtool easytag id3tool lame nautilus-script-audio-convert \
 		                libmad0 mpg321 gstreamer1.0-libav # Multimedia codecs
-	sudo apt-get -y --force-yes install pidgin pidgin-otr # XMPP client
-	sudo apt-get -y --force-yes install telegram # Instant messaging
+	sudo apt-get -y install telegram # Instant messaging
 	cd ~/
 	git clone git://github.com/joeyh/github-backup
 	cd github-backup
 	make
 
 	## Owncloud client
-	echo "deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_$(grep ^DISTRIB_RELEASE= /etc/lsb-release | cut -d= -f2)/ /" | sudo tee -a /etc/apt/sources.list.d/owncloud.list
-	wget http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_$(grep ^DISTRIB_RELEASE= /etc/lsb-release | cut -d= -f2)/Release.key -O - | sudo apt-key add -
-	sudo apt-get -y --force-yes update
-	sudo apt-get -y --force-yes install owncloud-client
+	sudo sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Ubuntu_16.04/ /' > /etc/apt/sources.list.d/owncloud-client.list"
+	sudo apt-get -y update
+	sudo apt-get -y install owncloud-client
 }
 
 ## INSTALL
