@@ -5,31 +5,31 @@ function installCommon() {
 	gsettings set org.gnome.desktop.session idle-delay 0
 
 	## UPDATE SYSTEM
-	sudo apt-get -y update && sudo apt-get -y upgrade
+	sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt autoremove -y
 
 	## REMOVE SOFTWARES
 	sudo apt-get -y autoremove software-center landscape-client-ui-install example-content rhythmbox* \
-	thunderbird* totem totem-common unity-lens-shopping unity-lens-friends \
-	unity-scope-musicstores unity-scope-video-remote
+	thunderbird* totem totem-common
 
 	## DEACTIVATE LENSES
 	gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 	gsettings set com.canonical.Unity.Lenses remote-content-search 'none'
 
 	## ADD SOME REPOS
-	sudo add-apt-repository -y ppa:webupd8team/atom # Atom
-	sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+	sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+	sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+	wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 	sudo apt-get -y update
 
 	## INSTALL SOFTWARES
 	softs=(
-		aptitude synaptic # Package manager
-		bleachbit # Memory cleaner
-		gparted # Partition manager
-		python-software-properties python g++ make # Nodejs deps
-		thunderbird thunderbird-locale-fr # Email client
+		aptitude synaptic dconf-editor bleachbit gparted gnome-tweak-tool
+		software-properties-common python gcc g++ make # Nodejs deps
 		gimp gimp-data gimp-plugin-registry gimp-data-extras # Image editor
-		terminator git atom vim chromium-browser curl # Dev tools
+		terminator git atom vim curl google-chrome-stable # Dev tools
 		unace unrar zip unzip p7zip-full p7zip-rar sharutils rar # Archive tools
 		uudeview mpack arj cabextract file-roller
 		)
@@ -39,26 +39,19 @@ function installCommon() {
 	done
 
 	## Node and npm install without sudo
-	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-        sudo apt-get -y install nodejs
+	curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+        sudo apt-get -y install nodejs yarn
         mkdir ~/npm
         npm config set prefix ~/npm
-        npm install -g npm@latest
-	npm install -g bower
-	npm install -g grunt-cli
-	npm install -g gulp
+        
 	
 	## Python packages
-	sudo apt-get -y install python-pip
-	sudo pip install --upgrade pip
-	pip install pep8 pyflakes
+	sudo apt autoremove python-pip
+	sudo apt-get -y install python3-pip
 
 	## ATOM THEMES AND PACKAGES
 	atoms=(
-		solarized-dark-ui
-		solarized-light-ui
-		save-session
-		project-manager
+		prokect-plus
 		highlight-line
 		sort-lines
 		toggle-quotes
@@ -67,11 +60,6 @@ function installCommon() {
 		atom-beautify
 		git-plus
 		git-blame
-		javascript-snippets
-		linter
-		jshint
-		angularjs
-		linter-flake8
 		file-icons
 		)
 	for p in "${atoms[@]}"
@@ -83,7 +71,7 @@ function installCommon() {
 	# Privacy
 	gsettings set org.gnome.desktop.privacy remember-recent-files false
 	# Launcher
-	gsettings set com.canonical.Unity.Launcher favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://thunderbird.desktop', 'application://atom.desktop', 'unity://expo-icon']"
+	gsettings set org.gnome.shell.extensions.dash-to-dock favorites "['application://nautilus.desktop', 'application://firefox.desktop', 'application://atom.desktop', 'unity://expo-icon']"
 	# Datetime
 	gsettings set com.canonical.indicator.datetime show-date true
 	gsettings set com.canonical.indicator.datetime show-day true
