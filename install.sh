@@ -51,7 +51,7 @@ function installCommon() {
 
 	## ATOM THEMES AND PACKAGES
 	atoms=(
-		prokect-plus
+		project-plus
 		highlight-line
 		sort-lines
 		toggle-quotes
