@@ -63,7 +63,7 @@ alias rm="rm -rf"
 # | Network |
 # ------------------------------------------------------------------------------
 
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | cut -d: -f2 | cut -d' ' -f1"
 
 # ------------------------------------------------------------------------------
