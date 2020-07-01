@@ -11,10 +11,12 @@ function installCommon() {
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-amd64.deb
 	sudo apt-get -y update
 
 	## INSTALL SOFTWARES
-	softs=(
+        sudo apt install -y ./slack-desktop-*.deb
+        softs=(
 		aptitude synaptic dconf-editor bleachbit gparted gnome-tweak-tool
 		software-properties-common python gcc g++ make # Nodejs deps
 		gimp gimp-data gimp-plugin-registry gimp-data-extras # Image editor
@@ -28,10 +30,12 @@ function installCommon() {
 	done
 
 	## Node and npm install without sudo
-	curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+	curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
         sudo apt-get -y install nodejs yarn
         mkdir ~/npm
         npm config set prefix ~/npm
+        sudo npm install -g n
+        sudo n 13.7.0
 }
 
 function installPerso() {
