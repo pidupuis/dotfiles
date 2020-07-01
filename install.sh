@@ -9,8 +9,6 @@ function installCommon() {
 	## ADD SOME REPOS
 	sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
         wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.0.2-amd64.deb
 	sudo apt-get -y update
 
@@ -31,11 +29,15 @@ function installCommon() {
 
 	## Node and npm install without sudo
 	curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-        sudo apt-get -y install nodejs yarn
+        sudo apt-get -y install nodejs
         mkdir ~/npm
         npm config set prefix ~/npm
         sudo npm install -g n
         sudo n 13.7.0
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        sudo apt update
+        sudo apt install yarn
 }
 
 function installPerso() {
