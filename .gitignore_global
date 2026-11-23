@@ -1,0 +1,25 @@
+# Global gitignore — only OS/editor noise that never belongs in any repo.
+# Project-specific ignores (logs, builds, archives…) go in each repo's .gitignore.
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors
+*~
+*.swp
+*.swo
+.idea/
+
+# Local secrets that should never be committed by accident
+.env.local
+*.local.env

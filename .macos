@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+#
+# macOS preferences. Run with: ./install.sh --macos   (or: bash ~/dotfiles/.macos)
+# Safe to re-run. Some changes need a logout/restart to take full effect.
+#
+# Deliberately NOT included (they weaken security or lose data):
+#   - disabling Gatekeeper's "downloaded from the internet" prompt (LSQuarantine)
+#   - showing hostname/IP on the login window (AdminHostInfo)
+#   - disabling the "empty Trash" warning, AirDrop over every interface
+#   - wiping all Dock icons
+#   - disabling press-and-hold (it gives you accents: é è ê à ç…)
+
+set -u
+
+# Close System Settings so it doesn't overwrite what we change
+osascript -e 'tell application "System Settings" to quit' 2>/dev/null
+
+echo "Some settings need admin rights; you may be asked for your password."
+sudo -v || exit 1
+
+###############################################################################
+# Typing for code                                                             #
+###############################################################################
+
+# Disable smart quotes, smart dashes and auto-correct
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Full keyboard access: Tab moves between all controls in dialogs
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Fast key repeat (fastest values available in System Settings)
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# List view by default, folders first
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Show all filename extensions (security: reveals "invoice.pdf.app" tricks)
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Don't create .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Expand save and print panels by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+###############################################################################
+# Dock, Spaces & hot corner                                                   #
+###############################################################################
+
+# Auto-hide the Dock, with no delay
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+
+# Don't show recent applications
+defaults write com.apple.dock show-recents -bool false
+
+# Minimize windows into their application's icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Don't automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Top-right hot corner → put display to sleep
+defaults write com.apple.dock wvous-tr-corner -int 10
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+###############################################################################
+# Power, lock & updates                                                       #
+###############################################################################
+
+# Turn the display off after 15 minutes
+sudo pmset -a displaysleep 15
+
+# Require the password immediately after sleep / screen saver
+# (the old `defaults write com.apple.screensaver askForPassword` no longer works)
+echo "Setting screen lock to 'immediately' (enter your login password if asked):"
+sysadminctl -screenLock immediately -password - 2>/dev/null \
+	|| echo "  → Couldn't set it; do it in System Settings › Lock Screen."
+
+# Automatically check for, download and install security updates
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool true
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -bool true
+
+# App Store apps update automatically
+sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true
+
+# Don't open Photos automatically when a device is plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+###############################################################################
+# Apply                                                                       #
+###############################################################################
+
+for app in Dock Finder SystemUIServer cfprefsd; do
+	killall "$app" &>/dev/null
+done
+echo "Done. Some changes take effect after a logout/restart."
